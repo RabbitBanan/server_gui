@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>
+    $(function() {
+        $('#btnSignUp').click(function() {
+
+            $.ajax({
+                url: '/login',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+
+
+{% for msg in get_flashed_messages() %}
+<div>{{msg}}</div>
+{% endfor %}
+
+
+<fieldset>
+    <legend class="">Вход</legend>
+    <form action="/login" method="post">
+        <input type="name" name="name" id="inputName" class="" placeholder="Name" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="" placeholder="Password" required autofocus>
+         <!--<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Войти</button>-->
+        <input type="submit" value="Вход">
+    </form>
+</fieldset>
+
+{% endblock %}

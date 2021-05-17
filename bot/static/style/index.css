@@ -1,0 +1,70 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.bots {
+  display: flex;
+}
+
+.bot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 0 10px;
+  min-width: 200px;
+  height: 200px;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.button {
+  align-self: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Roboto";
+  border: 2px solid;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.button:hover {
+   background-color: #2d2d44;
+   color: #fff;
+   border-color: black;
+}
+
+.add-bot {
+  cursor: pointer;
+  font-size: 25px;
+  color: gray;
+  border-style: dashed;
+  border-color: gray;
+  align-items: center;
+}
+
+.panel_buttons {
+    display: flex;
+}
+
+.switch {
+    margin-right: 10px;
+}
+
+/*
+#to_switch_off {background-color: #9AE886}
+#to_switch_on {background-color: #EC6C70}
+
+#to_switch_off:hover {background-color: #287A62}
+#to_switch_on:hover {background-color: #6E292C}
+*/
+
+.add-bot:hover {
+  background-color: #2d2d44;
+  color: #fff;
+  border-color: #fff;
+}

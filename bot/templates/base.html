@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <script type=text/javascript src="{{url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css') }}">
+
+  </head>
+  <body>
+    <div class="header">
+      <a href="/">На главную</a>
+      <span>Пользователь: {{log}}</span>
+
+    </div>
+    <hr>
+    {% block content %} {% endblock %}
+  </body>
+</html>

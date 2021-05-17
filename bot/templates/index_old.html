@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Тип NLP модуля: {{templates.type_nlp_module}}</p>
+<button id="edit_type_nlp_module">Изменить модуль nlp</button>
+<script>
+    $('#edit_type_nlp_module').on('click', function() {
+        //console.log($(this).text());
+        //$.post('/bot', {edit_type: {{templates.type_nlp_module}} })
+        window.location.replace("/edit");
+    });
+</script>
+<hr>
+<details>
+    <summary>Опросник на тему ***:</summary>
+    {% for intent, intent_data in templates.data_set.intents.items() %}
+    <details>
+        <summary>Вопрос: {{intent}}</summary>
+        <details>
+            <summary>Примерные вопросы: </summary>
+            {% for example in intent_data.examples %}
+            <p>{{example}}</p>
+            {% endfor %}
+        </details>
+        <p>Ответ: {{intent_data.responses.0 }}</p>
+    </details>
+    {% endfor %}
+    <button>Редактировать вопросы</button>
+    <hr>
+    <details>
+        <summary>Фразы недопонимание</summary>
+        {% for intent in templates.data_set.failure_phrases %}
+        <p>{{intent}}</p>
+        {% endfor %}
+    </details>
+    <button>Изменить фразы недопонимание</button>
+    <hr>
+    <details>
+        <summary>Фразы привествия</summary>
+        {% for intent in templates.data_set.hello_phrases %}
+        <p>{{intent}}</p>
+        {% endfor %}
+    </details>
+    <button>Изменить фразы привествия</button>
+    <hr>
+</details>
+<button>Изменить опросник</button>
+<hr>
+
+
+
+{% endblock %}

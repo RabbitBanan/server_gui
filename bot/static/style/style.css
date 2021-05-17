@@ -1,0 +1,9 @@
+html{
+  font-size: 25px;
+  font-family: "Roboto";
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}

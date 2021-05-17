@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='style/index.css') }}">
+
+<div class="main">
+  <fieldset>
+    <legend class="title">Информация</legend>
+      <span>Количество ботов: {{ count }}</span>
+
+  </fieldset>
+  <fieldset class="bots">
+    <legend class="title">Боты</legend>
+      <!--Цикл по свем ботам-->
+      {% for row in data%}
+      <div id="{{row[0]}}"  class="bot" {% if row[2] == 0 %} style="background-color: #EC6C70" {% else %} style="background-color: #9AE886"  {% endif %}>
+        <span>Имя: {{row[1]}}</span>
+        {% if row[2] == 0 %}
+        <span>Статус: Не работает</span>
+        {% else %}
+         <span>Статус: Работает</span>
+        {% endif %}
+        <dif class="panel_buttons">
+          {% if row[2] == 0 %}
+          <button id="to_switch_on" class="switch button" type="button" name="button">Включить</button>
+          {% else %}
+          <button id="to_switch_off" class="switch button" type="button" name="button">Выключить</button>
+          {% endif %}
+          <button class="edit button" type="button" name="button">Редактировать</button>
+        </dif>
+      </div>
+      {% endfor %}
+      <!--Конец цикла-->
+      <div class="bot add-bot">
+        <span>Добавить бота</span>
+      </div>
+  </fieldset>
+</div>
+
+{% endblock %}
